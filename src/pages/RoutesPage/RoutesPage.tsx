@@ -1,4 +1,4 @@
-import { RoutesTable } from "../../widgets/RoutesTable/RoutesTable";
+import { RoutesTable } from "@/widgets/RoutesTable/RoutesTable";
 import styles from "./RoutesPage.module.scss";
 
 export const RoutesPage = () => {

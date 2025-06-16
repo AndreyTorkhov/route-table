@@ -7,7 +7,7 @@ import {
 } from "@tanstack/react-table";
 import { columns } from "./columns";
 import styles from "./RoutesTable.module.scss";
-import { useRoutesStore } from "../../entities/store/routesStore";
+import { useRoutesStore } from "@/entities/store/routesStore";
 
 export const RoutesTable = () => {
   const routes = useRoutesStore((state) => state.routes);

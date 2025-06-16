@@ -1,6 +1,6 @@
 import type { ColumnDef } from "@tanstack/react-table";
-import type { Route } from "../../entities/route/model/types";
-import { compareIp } from "../../shared/lib/ipSort";
+import type { Route } from "@/entities/route/model/types";
+import { compareIp } from "@/shared/lib/ipSort";
 
 export const columns: ColumnDef<Route>[] = [
   {
