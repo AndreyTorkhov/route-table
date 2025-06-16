@@ -1,54 +1,56 @@
-# React + TypeScript + Vite
+# Route-table
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+Таблица вывода списка маршрутов.
+Данные в таблице можно сортировать по любому из столбцов. Сортировка должна работать следующим образом:
+ - **Адрес назначения** - через сравнение IP адресов
+ - **Шлюз** – через сравнение IP адресов
+ - **Интерфейс** – через сравнение строк
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Технологии
 
-## Expanding the ESLint configuration
+- **React + TypeScript**: Библиотека для построения интерфейсов и статическая типизация.
+- **Vite**: Инструмент для быстрой сборки и разработки.
+- **Zustand**: Управление состоянием для удобного отслеживания и обновления данных.
+- **@tanstack/react-table**: Табличная библиотека с сортировкой, пагинацией и виртуализацией.
+- **Docker**: Контейнеризация приложения для развёртывания в любом окружении.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Как скачать и запустить проект
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Клонируйте репозиторий и перейдите в директорию:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```bash
+   git clone https://github.com/AndreyTorkhov/route-table.git
+   cd route-table
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Установите зависимости:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+   ```bash
+    bun install
+   ```
+
+3. Запустите приложение для разработки:
+
+   ```bash
+    bun dev
+   ```
+
+
+Либо через **Docker**
+
+2. Сборка контейнера:
+
+   ```bash
+    docker build -t route-table-app .
+   ```
+
+3. Запуск контейнера:
+
+   ```bash
+    docker run --name react_container_route -p 5173:5173 route-table-app
+   ```
+
+  Приложение будет доступно по адресу `http://localhost:5173`
+
